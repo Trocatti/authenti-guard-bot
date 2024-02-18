@@ -7,7 +7,7 @@ import {
   IntentsBitField,
   TextInputBuilder,
   TextInputStyle,
-  ModalBuilder,
+  ModalBuilder
 } from "discord.js";
 
 const createModalEmail = async (interaction) => {

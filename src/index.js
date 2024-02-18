@@ -1,6 +1,6 @@
 import 'dotenv/config'
 
-import discordbot from "./discordbot.mjs"
+import discordbot from "./discordbot.js"
 
 function bootstrap() {
   discordbot()
