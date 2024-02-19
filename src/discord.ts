@@ -1,5 +1,5 @@
 import { Client, Events, IntentsBitField } from "discord.js";
-import { memberAdd, messageCreate, interactionCreate, sendMessageVerify } from "./events/index.js";
+import { memberAdd, messageCreate, interactionCreate, sendMessageVerify } from "./events";
 
 export const initializeDiscordClient = () => {
   const client = new Client({
@@ -11,9 +11,9 @@ export const initializeDiscordClient = () => {
     ],
   });
 
-  client.once(Events.ClientReady, async (readyClient) => {
+  client.once(Events.ClientReady, async (readyClient: Client<boolean>) => {
     console.log(`Ready! Logged in as ${readyClient.user.tag}`);
-    sendMessageVerify.execute(_, client)
+    sendMessageVerify.execute(client)
   });
 
   client.login(process.env.DISCORD_BOT_TOKEN);

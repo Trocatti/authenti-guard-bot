@@ -1,7 +1,8 @@
+import { Client, MessageComponentInteraction } from 'discord.js';
 import interactionModal from "./interactionModal";
 
 export default {
-  async execute(interaction, client) {
+  async execute(interaction: MessageComponentInteraction, client: Client) {
     if (interaction.customId === "openModalEmail") {
       await interactionModal.createModalEmail(interaction);
     }

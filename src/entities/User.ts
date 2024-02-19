@@ -6,7 +6,7 @@ export class User {
     public name: string
     public email: string
     public discordId: string;
-    public school: string;
+    public schoolName: string;
     public role: string;
 
     constructor(props: Omit<User, 'id'>, id?: string) {

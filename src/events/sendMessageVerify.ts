@@ -1,8 +1,12 @@
-import { ActionRowBuilder, ButtonBuilder } from "discord.js";
+import { ActionRowBuilder, ButtonBuilder, ButtonStyle, Channel, Client, TextChannel } from "discord.js";
+
+const CHANNEL_WELCOME_ID = "1208268373037817856" // canal: bem-vindo mock
 
 export default {
-  async execute(_, client) {
-    const channel = await client.channels.fetch("1208268373037817856"); // canal: bem-vindo
+  async execute(client: Client, channelId:string = CHANNEL_WELCOME_ID) {
+    const channel: Channel = await client.channels.fetch(channelId); 
+
+    if(!channel) throw new Error ("Channel not found")
 
     const buttonConfirm = new ButtonBuilder()
       .setCustomId("openModalEmail")
@@ -14,12 +18,12 @@ export default {
       .setLabel("Sair do servidor!")
       .setStyle(ButtonStyle.Danger);
 
-    const row = new ActionRowBuilder().addComponents(
+    const row: ActionRowBuilder<any> = new ActionRowBuilder().addComponents(
       buttonConfirm,
       buttonQuite
     );
 
-    channel.send({
+    (channel as TextChannel).send({
       content:
         "Faça a verificação com seu e-mail utilizado na compra do curso.",
       components: [row],

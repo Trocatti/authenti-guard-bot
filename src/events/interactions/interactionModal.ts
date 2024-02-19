@@ -1,8 +1,8 @@
-import { ActionRowBuilder, ButtonBuilder, ModalBuilder, TextInputBuilder } from "discord.js";
+import { ActionRowBuilder, ButtonBuilder, ModalBuilder, TextInputBuilder, TextInputStyle, MessageComponentInteraction, ButtonStyle, ModalSubmitInteraction } from "discord.js";
 import roleManager from "../roleManager";
 
 export default {
-  async createModalEmail(interaction) {
+  async createModalEmail(interaction: MessageComponentInteraction) {
     const modal = new ModalBuilder()
       .setCustomId("emailModal")
       .setTitle("AuthentiGuard");
@@ -16,14 +16,14 @@ export default {
       .setMinLength(10)
       .setMaxLength(254);
 
-    const firstActionRow = new ActionRowBuilder().addComponents(email);
+    const firstActionRow: ActionRowBuilder<any> = new ActionRowBuilder().addComponents(email);
 
     modal.addComponents(firstActionRow);
 
     await interaction.showModal(modal);
   },
 
-  async createModalCode(interaction) {
+  async createModalCode(interaction: MessageComponentInteraction) {
     const modal = new ModalBuilder()
       .setCustomId("codeModal")
       .setTitle("AuthentiGuard");
@@ -37,14 +37,14 @@ export default {
       .setMaxLength(8)
       .setRequired(true);
 
-    const firstActionRow = new ActionRowBuilder().addComponents(email);
+    const firstActionRow: ActionRowBuilder<any>  = new ActionRowBuilder().addComponents(email);
 
     modal.addComponents(firstActionRow);
 
     await interaction.showModal(modal);
   },
 
-  async getEmail(interaction) {
+  async getEmail(interaction: ModalSubmitInteraction) {
     const email = interaction.fields.getTextInputValue("email");
 
     console.log({ email });
@@ -54,7 +54,7 @@ export default {
       .setLabel("Inserir código")
       .setStyle(ButtonStyle.Primary);
 
-    const row = new ActionRowBuilder().addComponents(buttonConfirm);
+    const row: ActionRowBuilder<any> = new ActionRowBuilder().addComponents(buttonConfirm);
 
     await interaction.reply({
       content: "Enviamos um código para o e-mail informado.",
@@ -62,7 +62,7 @@ export default {
     });
   },
 
-  async getCode(interaction) {
+  async getCode(interaction: ModalSubmitInteraction) {
     const code = interaction.fields.getTextInputValue("code");
 
     console.log({ code });
@@ -74,7 +74,7 @@ export default {
     });
   },
 
-  async execute(interaction) {
+  async execute(interaction: MessageComponentInteraction) {
     if (interaction.customId === "emailModal") {
       await this.getEmail(interaction);
     }
