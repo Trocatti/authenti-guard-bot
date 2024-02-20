@@ -1,13 +1,9 @@
 import memberAdd from "./memberAdd";
-import messageCreate from "./messageCreate";
 import interactionCreate from "./interactionCreate";
-import sendMessageVerify from "./sendMessageVerify";
+import messageCreate from "./messageCreate";
 import roleManager from "./roleManager";
+import sendMessageVerify from "./sendMessageVerify";
 
 export {
-  memberAdd,
-  messageCreate,
-  interactionCreate,
-  sendMessageVerify,
-  roleManager,
-};
+  memberAdd, interactionCreate, messageCreate, roleManager, sendMessageVerify
+}

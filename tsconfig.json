@@ -1,26 +1,16 @@
 {
-  "ts-node": {
-    "transpileOnly": true,
-    "files": true,
-    "esm": true,
-    "compilerOptions": {
-      "module": "ESNext"
-    }
-  },
   "compilerOptions": {
     "target": "ESNext",
     "module": "commonjs",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "skipLibCheck": true,
+    "moduleResolution": "node",
     "allowJs": true,
-    "allowImportingTsExtensions": true
+    "esModuleInterop": true,
+    "strict": false,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
   },
   "include": [
-    "src/**/*.ts",
-    "../**/*",
-    ".."
+    "src/**/*.ts"
   ],
   "exclude": [
     "node_modules",

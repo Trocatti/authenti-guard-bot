@@ -1,5 +1,5 @@
-import { Client } from 'discord.js';
+import { GuildMember, Client } from 'discord.js';
 
 export default {
-    async execute({ client }: { client: Client }) {}
+    async execute(member: GuildMember, client: Client) {}
 }

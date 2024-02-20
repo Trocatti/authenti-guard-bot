@@ -1,7 +1,6 @@
-import interactionButton from './interactionButton'
-import interactionModal from './interactionModal'
+import interactionButton from "./interactionButton";
+import interactionModal from "./interactionModal";
 
 export {
-    interactionButton, 
-    interactionModal
+    interactionButton, interactionModal
 }

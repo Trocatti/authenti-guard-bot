@@ -1,7 +1,18 @@
-import { ActionRowBuilder, ButtonBuilder, ModalBuilder, TextInputBuilder, TextInputStyle, MessageComponentInteraction, ButtonStyle, ModalSubmitInteraction } from "discord.js";
+import { ActionRowBuilder, ButtonBuilder, ModalBuilder, TextInputBuilder, TextInputStyle, MessageComponentInteraction, ButtonStyle, ModalSubmitInteraction, CacheType, Interaction } from "discord.js";
 import roleManager from "../roleManager";
 
 export default {
+
+  async execute(interaction: Interaction<CacheType>) {
+    if ((interaction as ModalSubmitInteraction).customId === "emailModal") {
+      await this.getEmail(interaction);
+    }
+
+    if ((interaction as ModalSubmitInteraction).customId === "codeModal") {
+      await this.getCode(interaction);
+    }
+  },
+
   async createModalEmail(interaction: MessageComponentInteraction) {
     const modal = new ModalBuilder()
       .setCustomId("emailModal")
@@ -74,13 +85,5 @@ export default {
     });
   },
 
-  async execute(interaction: MessageComponentInteraction) {
-    if (interaction.customId === "emailModal") {
-      await this.getEmail(interaction);
-    }
-
-    if (interaction.customId === "codeModal") {
-      await this.getCode(interaction);
-    }
-  },
+  
 };

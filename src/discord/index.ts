@@ -18,7 +18,7 @@ export const initializeDiscordClient = () => {
 
   client.login(process.env.DISCORD_BOT_TOKEN);
 
-  client.on(Events.GuildMemberAdd, memberAdd.execute);
-  client.on(Events.MessageCreate, messageCreate.execute);
-  client.on(Events.InteractionCreate, interactionCreate.execute);
+  client.on(Events.GuildMemberAdd, async (member) => await memberAdd.execute(member, client));
+  client.on(Events.MessageCreate, async (message) => await messageCreate.execute(message, client));
+  client.on(Events.InteractionCreate, async (interaction) => await interactionCreate.execute(interaction, client));
 };
