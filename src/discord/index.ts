@@ -12,7 +12,7 @@ export const initializeDiscordClient = () => {
   });
 
   client.once(Events.ClientReady, async (readyClient: Client<boolean>) => {
-    console.log(`Ready! Logged in as ${readyClient.user.tag}`);
+    console.log(`Ready! Logged in as ${readyClient?.user?.tag}`);
     sendMessageVerify.execute(client)
   });
 

@@ -1,11 +1,11 @@
 import 'dotenv/config'
 
 // import discordbot from "./discordbot.js"
-import discord from "./discord.js"
+import { initializeDiscordClient } from "./discord"
 
 function bootstrap() {
   //discordbot()
-  discord()
+  initializeDiscordClient()
 }
 
 bootstrap();

@@ -16,7 +16,6 @@
     "discord.js": "14.14.1",
     "dotenv": "16.4.4",
     "nodemailer": "6.9.9",
-    "uuid": "^9.0.1",
     "uuidv4": "^6.2.13"
   },
   "devDependencies": {

@@ -3,10 +3,12 @@ import { ActionRowBuilder, ButtonBuilder, ButtonStyle, Channel, Client, TextChan
 const CHANNEL_WELCOME_ID = "1208268373037817856" // canal: bem-vindo mock
 
 export default {
-  async execute(client: Client, channelId:string = CHANNEL_WELCOME_ID) {
-    const channel: Channel = await client.channels.fetch(channelId); 
+  async execute(client: Client, channelId: string = CHANNEL_WELCOME_ID) {
+    const channel: Channel | null = await client.channels.fetch(channelId);
 
-    if(!channel) throw new Error ("Channel not found")
+    if (!channel) {
+      throw new Error("Channel not found")
+    }
 
     const buttonConfirm = new ButtonBuilder()
       .setCustomId("openModalEmail")
