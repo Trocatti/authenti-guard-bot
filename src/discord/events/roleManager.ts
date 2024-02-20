@@ -1,4 +1,4 @@
-import { GuildMember, Interaction, PermissionResolvable } from "discord.js";
+import { GuildMember, Interaction, PermissionsBitField } from "discord.js";
 
 const ROLE_ID = "1207831233141153823"; // role estudante
 
@@ -12,7 +12,7 @@ export default {
       return;
     }
 
-    if (!member.permissions.has(PermissionResolvable.ManageRoles)) {
+    if (!member.permissions.has(PermissionsBitField.Flags.ManageRoles)) {
       console.error("I do not have permissions to manage roles.");
       return;
     }
